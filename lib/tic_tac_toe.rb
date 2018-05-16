@@ -128,17 +128,17 @@ class TicTacToe
     end
   end
 
-end
-
-def play_again
-  puts "Would you like to play again? (y/n)"
-  answer = gets.strip
-  if answer == "y"
-    game = TicTacToe.new
-    game.play
-  elsif answer == "n"
-    puts "Goodbye! Thank you for playing!"
-    exit
-  else play_again
+  def play_again
+    puts "Would you like to play again? (y/n)"
+    answer = gets.strip
+    if answer == "y"
+      game = TicTacToe.new
+      game.play
+    elsif answer == "n"
+      puts "Goodbye! Thank you for playing!"
+      exit
+    else play_again
+    end
   end
+
 end
