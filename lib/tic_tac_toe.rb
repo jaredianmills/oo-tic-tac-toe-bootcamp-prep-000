@@ -141,3 +141,8 @@ class TicTacToe
     end
   end
 end
+
+def play_game
+  game = TicTacToe.new
+  game.play
+end
