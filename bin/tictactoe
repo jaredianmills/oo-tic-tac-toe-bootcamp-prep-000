@@ -6,7 +6,6 @@ def play_game
   game = TicTacToe.new
   game.play
   play_again
-  play_game
 end
 
 play_game
