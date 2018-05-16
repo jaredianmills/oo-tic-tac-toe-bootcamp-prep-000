@@ -138,9 +138,3 @@ def play_again
   else play_again
   end
 end
-
-def play_game
-  game = TicTacToe.new
-  game.play
-  play_again
-end
