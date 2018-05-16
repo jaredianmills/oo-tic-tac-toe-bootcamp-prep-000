@@ -113,6 +113,18 @@ class TicTacToe
     winning_player
   end
 
+  def play_again
+    puts "Would you like to play again? (y/n)"
+    answer = gets.strip
+    if answer == "y"
+      play_game
+    elsif answer == "n"
+      puts "Goodbye! Thank you for playing!"
+      exit
+    else play_again
+    end
+  end
+
   def play
     until over? do
       turn
@@ -124,17 +136,5 @@ class TicTacToe
       display_board
       puts "Cat's Game!"
     end
-  end
-end
-
-def play_again
-  puts "Would you like to play again? (y/n)"
-  answer = gets.strip
-  if answer == "y"
-    play_game
-  elsif answer == "n"
-    puts "Goodbye! Thank you for playing!"
-    exit
-  else play_again
   end
 end
