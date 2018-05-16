@@ -117,7 +117,8 @@ class TicTacToe
     puts "Would you like to play again? (y/n)"
     answer = gets.strip
     if answer == "y"
-      play_game
+      game = TicTacToe.new
+      game.play
     elsif answer == "n"
       puts "Goodbye! Thank you for playing!"
       exit
