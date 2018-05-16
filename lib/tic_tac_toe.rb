@@ -26,8 +26,8 @@ class TicTacToe
     user_input.to_i - 1
   end
 
-  def position_taken?(board, location)
-    board[location] != " " && board[location] != ""
+  def position_taken?(location)
+    @board[location] != " " && @board[location] != ""
   end
 
   def valid_move?(board, location)
