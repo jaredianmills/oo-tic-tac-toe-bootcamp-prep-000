@@ -2,10 +2,4 @@
 require 'pry'
 require_relative '../lib/tic_tac_toe.rb'
 
-def play_game
-  game = TicTacToe.new
-  game.play
-  play_again
-end
-
 play_game
