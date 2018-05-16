@@ -127,5 +127,4 @@ class TicTacToe
       play_again
     end
   end
-
 end
