@@ -120,12 +120,10 @@ class TicTacToe
     if won?
       display_board
       puts "Congratulations #{winner}!"
-      play_again
     elsif draw?
       display_board
       puts "Cat's Game!"
-      play_again
     end
   end
-  
+
 end
