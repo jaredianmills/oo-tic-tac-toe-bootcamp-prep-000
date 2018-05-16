@@ -26,5 +26,12 @@ class TicTacToe
     user_input.to_i - 1
   end
 
+  def position_taken?(board, location)
+    board[location] != " " && board[location] != ""
+  end
+
+  def move(board, index, player_character)
+    board[index] = player_character
+  end
 
 end
