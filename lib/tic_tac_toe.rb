@@ -98,34 +98,18 @@ class TicTacToe
     draw? || won?
   end
 
-  def winner(board)
+  def winner
     winning_player = nil
-    if won?(board)
-      winning_positions = won?(board)
+    if won?
+      winning_positions = won?
       winning_positions.all? do |index|
-        if board[index] == "X"
+        if @board[index] == "X"
           winning_player = "X"
-        elsif board[index] == "O"
+        elsif @board[index] == "O"
           winning_player = "O"
         end
       end
     end
     winning_player
   end
-
-  def play(board)
-    until over?(board) do
-      turn(board)
-    end
-    if won?(board)
-      display_board(board)
-      puts "Congratulations #{winner(board)}!"
-      play_again
-    elsif draw?(board)
-      display_board(board)
-      puts "Cat's Game!"
-      play_again
-    end
-  end
-
 end
