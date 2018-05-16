@@ -140,4 +140,5 @@ def play_again
     puts "Goodbye! Thank you for playing!"
     exit
   else play_again
+  end
 end
