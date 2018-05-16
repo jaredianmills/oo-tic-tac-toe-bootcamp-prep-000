@@ -131,8 +131,7 @@ def play_again
   puts "Would you like to play again? (y/n)"
   answer = gets.strip
   if answer == "y"
-    game = TicTacToe.new
-    game.play
+    play_game
   elsif answer == "n"
     puts "Goodbye! Thank you for playing!"
     exit
