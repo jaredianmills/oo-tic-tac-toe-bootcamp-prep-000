@@ -84,18 +84,18 @@ class TicTacToe
     winner
   end
 
-  def full?(board)
-    board.all? do |character|
+  def full?
+    @board.all? do |character|
       character == "X" || character == "O"
     end
   end
 
-  def draw?(board)
-    full?(board) && !won?(board)
+  def draw?
+    full? && !won?
   end
 
-  def over?(board)
-    draw?(board) || won?(board)
+  def over?
+    draw? || won?
   end
 
   def winner(board)
