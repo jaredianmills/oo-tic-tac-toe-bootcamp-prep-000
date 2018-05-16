@@ -8,3 +8,5 @@ def play_game
   play_again
   play_game
 end
+
+play_game
