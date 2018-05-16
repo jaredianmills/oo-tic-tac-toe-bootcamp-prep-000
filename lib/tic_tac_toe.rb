@@ -55,11 +55,11 @@ class TicTacToe
     @board.count{|character| character == "X" || character == "O"}
   end
 
-  def current_player(board)
+  def current_player
     character = ""
-    if turn_count(board).even?
+    if turn_count.even?
       character = "X"
-    elsif turn_count(board).odd?
+    elsif turn_count.odd?
       character = "O"
     end
   end
