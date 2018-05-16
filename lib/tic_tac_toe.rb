@@ -38,4 +38,100 @@ class TicTacToe
     @board[index] = player_character
   end
 
+  def turn(board)
+    display_board(board)
+    puts "Please enter 1-9"
+    user_input = gets.strip
+    location = input_to_index(user_input)
+    if valid_move?(board, location)
+      player_character = current_player(board)
+      move(board, location, player_character)
+    else
+      turn(board)
+    end
+  end
+
+  def turn_count(board)
+    turn_number = 0
+    board.each do |character|
+      if character == "X" || character == "O"
+        turn_number += 1
+      end
+    end
+    turn_number
+  end
+
+  def current_player(board)
+    character = ""
+    if turn_count(board).even?
+      character = "X"
+    elsif turn_count(board).odd?
+      character = "O"
+    end
+  end
+
+  def won?(board)
+    winner = ""
+    WIN_COMBINATIONS.each do |win_combination|
+      win_index_1 = win_combination[0]
+      win_index_2 = win_combination[1]
+      win_index_3 = win_combination[2]
+      position_1 = board[win_index_1]
+      position_2 = board[win_index_2]
+      position_3 = board[win_index_3]
+      if position_1 == "X" && position_2 == "X" && position_3 == "X"
+        return win_combination
+      elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+        return win_combination
+      else
+        winner = false
+      end
+    end
+    winner
+  end
+
+  def full?(board)
+    board.all? do |character|
+      character == "X" || character == "O"
+    end
+  end
+
+  def draw?(board)
+    full?(board) && !won?(board)
+  end
+
+  def over?(board)
+    draw?(board) || won?(board)
+  end
+
+  def winner(board)
+    winning_player = nil
+    if won?(board)
+      winning_positions = won?(board)
+      winning_positions.all? do |index|
+        if board[index] == "X"
+          winning_player = "X"
+        elsif board[index] == "O"
+          winning_player = "O"
+        end
+      end
+    end
+    winning_player
+  end
+
+  def play(board)
+    until over?(board) do
+      turn(board)
+    end
+    if won?(board)
+      display_board(board)
+      puts "Congratulations #{winner(board)}!"
+      play_again
+    elsif draw?(board)
+      display_board(board)
+      puts "Cat's Game!"
+      play_again
+    end
+  end
+
 end
