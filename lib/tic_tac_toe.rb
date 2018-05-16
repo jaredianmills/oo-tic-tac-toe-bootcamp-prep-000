@@ -30,6 +30,10 @@ class TicTacToe
     board[location] != " " && board[location] != ""
   end
 
+  def valid_move?(board, location)
+    !position_taken?(board, location) && location.between?(0, 8)
+  end
+
   def move(board, index, player_character)
     board[index] = player_character
   end
